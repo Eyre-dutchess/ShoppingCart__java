@@ -1,0 +1,98 @@
+@import "./variables";
+
+.cart-container{
+    
+    position: absolute;
+    top: 5.5em;
+    left: 2.5%;
+    width: 95%;
+    min-height: 50vh;
+    background-color: $clr-light-1;
+    border-radius: $br;
+    @include flex(flex-start, flex-start, column);
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: $trans;
+    z-index: 999;
+
+    &.active{
+        transform: scale(1, 1);
+    }
+    .cart-header{
+        width: 100%;
+        padding: 5vw;
+        padding-block: 2em 1em;
+        border-bottom: 1px solid $clr-pale-4;
+        font-weight: $fw-7;
+    }
+    .cart-content{
+        width: 100%;
+        padding: 2em;
+        padding-top: 0.5em;
+        @include flex(flex-start, center, row);
+
+        .empty-text{
+            text-align: center;
+            font-weight: $fw-7;
+            color: $clr-primary-7
+        }
+        &.empty .cart-full{
+            display: none;
+        }
+        &.full .empty-text{
+            display: none;
+        }
+
+        .cart-full{
+            width: 100%;
+            height: max-content;
+            .cart-list{
+                height: max-content;
+                
+                .cart-item{
+                    display: grid;
+                    grid-template-columns: 3em 1fr 2em;
+                    align-items: center;
+                    gap: 0.5em;
+                    margin-bottom: 1em;
+                    .cart-img{
+                        border-radius: 5px;
+                        width: 2.5em;
+                        height:2.5em;
+                    }
+                    .cart-middle{
+                        color: $clr-primary-7;
+                        text-transform: capitalize;
+                        .price-total{
+                            font-weight: $fw-7;
+                            color: $clr-dark-8;
+                            margin-left: 5vw;
+                        }
+                    }
+                    .remove-cart-btn{
+                        width: 1.5em;
+                        height: 1.5em;
+                        border-radius: 0;
+                        transform: translateX(1em);
+                        padding:0;
+                        &:hover{
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+
+            .checkout-btn{
+                width: 100%;
+                padding: 0.5em;
+                background-color: $clr-accent-5;
+                border-radius: 5px;
+                margin-block: 1em;
+                color: $clr-pale-2;
+                &:hover{
+                    opacity: 0.75;
+                }
+            }
+        }
+    }
+}

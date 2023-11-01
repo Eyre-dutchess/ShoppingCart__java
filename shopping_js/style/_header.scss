@@ -1,0 +1,96 @@
+@import "./variables";
+
+header{
+    width: 100%;
+    height: 5em;
+    padding-inline: 5vw;
+    position: relative;
+    @include flex(center, space-between, row);
+    &>*{
+        @include flex(center, center, row);
+        gap: 5vw;
+    }
+    
+    .header-nav{
+        transform: scale(0, 1);
+        transform-origin: left;
+        transition: $trans;
+        position: absolute;
+        top:0;
+        left:0;
+        width: 70vw;
+        height: 100vh;
+        background-color: $clr-light-1;
+        padding: 5vw;
+        z-index: 999;
+        &.active{
+            transform: scale(1, 1);
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 30vw;
+            height: 100%;
+            background-color: $lightbox-6;
+            top:0;
+            right:-30vw;
+        }
+        .nav-list{
+            padding-top: 5vw;
+            .nav-item{
+                margin-block: 1em;
+                a{
+                    text-transform: capitalize;
+                    font-weight: $fw-7;
+                    color: $clr-dark-8;
+                    position: relative;
+                    &:hover::after{
+                        transform: scale(1, 1);
+                    }
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        width: 90%;
+                        height: 3px;
+                        border-radius: 100vw;
+                        background-color: $clr-accent-5;
+                        bottom: -50%;
+                        left: 5%;
+                        transition: $trans;
+                        transform: scale(0, 1);
+                        transform-origin:left ;
+                    }
+
+
+                }
+            }
+             
+        }
+    }
+
+    .cart-btn{
+        position: relative;
+        cursor: pointer;
+        &:hover{
+            background-color: transparent;
+        }
+        span{
+            position: absolute;
+            width: 1.75em;
+            line-height: 1;
+            border-radius: 100vw;
+            top: 10%;
+            right: 5%;
+            background-color: $clr-accent-5;
+            color: $clr-pale-2;
+            font-weight: $fw-7;
+            font-size: $fs-cart-1;
+        }
+    }
+    .profile-link{
+        width: 2em;
+        height: 2em;
+    }
+   
+
+}

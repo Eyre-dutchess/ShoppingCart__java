@@ -1,0 +1,314 @@
+@import "./style/variables";
+@import "./style/header";
+@import "./style/cart";
+@import "./style/main";
+@import "./style/screen";
+
+
+body{
+    font-family: $ff;
+    font-size: $fs-primary-2;
+    font-weight: $fw-4;
+    line-height: 1.2;
+}
+ul li{
+    list-style: none;
+}
+li a{
+    text-decoration: none;
+    cursor: pointer;
+}
+li a:hover{
+    color: $clr-dark-8;
+}
+button{
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.5em;
+    background-color: transparent;
+    transition: $trans;
+    &:hover{
+        background-color: $clr-pale-2;
+        box-shadow: 3px 3px 5px 0 hsl(220, 13%, 13%, 0.5);
+    }
+}
+
+
+    header{
+
+        @include xs{
+            z-index: 999;
+            background-color: $clr-light-1;
+            filter: drop-shadow(0 3px 5px hsl(220, 13%, 13%));
+            &>*{
+                gap: 1em;
+            }
+            .cart-container{
+                width: 50%;
+                max-width: 400px;
+                z-index: 999;
+                left: unset;
+                right: 5%;
+                filter: drop-shadow(0 3px 5px hsl(220, 13%, 13%));
+            }
+        }
+        @include sm{
+            filter: none;
+            .open-nav-btn{ 
+                display: none;
+            }
+            .header-nav{
+                position: unset;
+                height: 100%;
+                padding: 0;
+                @include flex(center, center, row);
+                &::after{
+                    display: none;
+                }
+                .close-nav-btn{
+                    display: none;
+                }
+                .nav-list{
+                    padding-top: 0;
+                    @include flex(center, space-between, row);
+                    gap: 3vw;
+                    .nav-item a::after{
+                        top: 3em;
+                    }
+                }
+            }
+    }}
+    
+    main{
+        @include xs{
+        max-width: 400px;
+        min-height: calc(100vh - 5em);
+        margin-inline: auto;
+        box-shadow: 0 0 0.5em $clr-dark-8;
+        z-index: 0;
+        
+    }
+    @include sm{
+        max-width: 100vw;
+        padding-inline: 5vw;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 1em;
+        .litbx-container.open{
+            display: block;
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100vw;
+            height: 100vh;
+            background-color: hsl(0 0% 0%/75%);
+            z-index: 999;
+            @include flex(center, center, row);
+            .lightbox-container{
+                width: 80%;
+                height: 80%;
+                background-color:hsl(0 0% 100%/0.85);
+                display: grid;
+                grid-template-rows: 1fr 4em;
+                align-items: center;
+                .active-img{
+                    width: 80%;
+                    margin-inline: auto;
+                    grid-row: 1/2;
+                    aspect-ratio: 5/3;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+                .img-track{
+                    grid-row: 2/3;
+                    width: 100%;
+                    height: 3em;
+                    @include flex( center, space-evenly, row);
+                    &>*{
+                        width: 3em;
+                        height: 3em;
+                        opacity: 0.5;
+                        &.active{
+                            opacity: 1;
+                            border-radius: 5px;
+                            border: 2px solid $clr-accent-5;
+                        }
+                    }
+                }
+                button{
+                    width: 2em;
+                    height: 2em;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 45%;
+                    @include flex(center, center, row);
+                    background-color: $clr-light-1;
+                    &:hover{
+                        box-shadow:inset 0 0 0.5em 0 $clr-accent-5,
+                         $box-1;
+                        background-color: $clr-pale-2;
+                    }
+                    &.left-btn{
+                        left: 12%;
+                    }
+                    &.right-btn{
+                        right: 12%;
+                    }
+                }
+            }
+            .close-litbx-btn{
+                position: absolute;
+                right: 8.5%;
+                top: 8.5%;
+                z-index: 999;
+                background-color: white;
+                color: red;
+                width: 2em;
+                height: 2em;
+                @include flex( center, center, row)
+            }
+           }
+       .img-container{
+        height: 100%;
+        max-width: 400px;
+        padding-top: 3em;
+        .active-img{
+            display: block;
+            width:100%;
+            aspect-ratio: 5/4;
+            position: absolute;
+            top:0;
+            left:0;
+            border-radius: 10px;
+            overflow: hidden;
+            img{
+                aspect-ratio: 5/4;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            
+        }
+        .img-track{
+            position: absolute;
+            left: 0;
+            top: 75%;
+            width: 100%;
+            height: 5em;
+            @include flex(center, space-evenly, row);
+            &>*{
+                opacity: 0.5;
+                position: unset;
+                width: 4em;
+                height: 4em;
+                object-fit: cover;
+                &.active{
+                    border: 2px solid $clr-accent-5;
+                    border-radius: 5px;
+                }
+                &:hover{
+                    opacity: 1;
+                    cursor: pointer;
+                }
+            }
+        }
+       }
+       
+       
+    }
+}
+
+
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* reset/* Remove default margin */
+*
+ {
+  margin: 0;
+  padding:0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* reset/* Set core body defaults */
+body,
+html {
+  height:100%;
+}
+body{
+    text-rendering: optimizespeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* reset/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+
+
+/* remove transition/animation */
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after{
+ animation-duration: 0.01ms !important;
+ animation-iteration-count: 1 !important;
+ transition-duration: 0.01ms !important;
+ scroll-behavior: auto !important;}}
+
+
+
+/*  utility class */
+.sr-only{
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: 1px;
+overflow: hidden;
+clip: rect(0, 0,0,0);
+white-space: nowrap;
+border: 0;
+}
+

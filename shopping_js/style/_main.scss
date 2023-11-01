@@ -1,0 +1,152 @@
+main{
+    min-height: 100vh;
+    .litbx-container{
+        display: none;
+    }
+    .img-container{
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        .active-img{
+            display: none;
+        }
+        .img-track{
+            width: 100%;
+            
+            &>*{
+                position: absolute;
+                width: 100%;
+                aspect-ratio: 5/4;
+                object-fit: cover;
+                top:0;
+                left:0;
+                opacity: 0;
+                &.active{
+                    opacity: 1;
+                }
+            }
+        }
+        button{
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            position: absolute;
+            top: 25vh;
+            @include flex(center, center, row);
+            background-color: $clr-light-1;
+            &:hover{
+                box-shadow:inset 0 0 0.5em 0 $clr-accent-5,
+                 $box-1;
+                background-color: $clr-pale-2;
+            }
+            &.left-btn{
+                left: 1em;
+            }
+            &.right-btn{
+                right: 1em;
+            }
+        }
+    }
+    .content-container{
+        padding: 2em 5vw;
+        .info-container{
+            .brand{
+                text-transform: uppercase;
+                color: $clr-accent-5;
+                font-weight: $fw-7;
+                letter-spacing: 3px;
+            }
+            .title{
+                font-size: $fs-title-6;
+                font-weight: $fw-7;
+                text-transform: capitalize;
+                margin-block: 0.5em;
+                line-height: 1.2;
+            }
+            .info{
+                color: $clr-primary-7;
+                line-height: 1.2;
+            }
+            .price{
+                width: 100%;
+                padding-block: 1em;
+                @include flex(center, space-between, row);
+                .cur-price{
+                    font-size: $fs-title-6;
+                    font-weight: $fw-7;
+                    @include flex(center, space-between, row);
+                    gap: 0.5em;
+                    .sale{
+                        font-size: $fs-primary-2;
+                        color: $clr-accent-5;
+                        background-color: $clr-pale-2;
+                        padding: 0.05em 0.5em;
+                        border-radius: 5px;
+                    }
+                }
+                .ori-price{
+                    color: $clr-pale-4;
+                    font-weight: $fw-7;
+                    text-decoration: line-through;
+                    text-decoration-thickness: 2px;
+                }
+            }
+
+            .cart-action{
+                .amount-action{
+                    background-color: $clr-bg-3;
+                    border-radius: 5px;
+                    height: 3em;
+                    padding-inline: 0.5em;
+                    @include flex(center, space-between, row);
+                    button{
+                        height: 2em;
+                        &:hover{
+                            box-shadow: $box-1;
+                        }
+                    }
+                    .amount-form{
+                        width: 5em;
+                        height: 2em;
+                        position: relative;
+                        input{
+                            opacity: 0;
+                        }
+                        label{
+                            opacity: 1;
+                        }
+                        &:focus-within input{
+                            opacity: 1;
+                        }
+                        &:focus-within label{
+                            opacity: 0;
+                        }
+                        
+                        &>*{
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            text-align: center;
+                            border: none;
+                            background-color: $clr-light-1;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+                .add-to-cart-btn{
+                    height: 3em;
+                    background-color: $clr-accent-5;
+                    border-radius: 5px;
+                    width: 100%;
+                    margin-top: 1em;
+                    color: $clr-pale-2;
+                    @include flex(center, center, row);
+                    gap: 0.5em;
+                    &:hover{
+                        opacity: 0.75;
+                    }
+
+                }
+            }
+    }
+}}

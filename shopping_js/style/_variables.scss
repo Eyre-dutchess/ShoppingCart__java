@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" );
+
+$clr-light-1: hsl(0, 0%, 100%);
+$clr-pale-2: hsl(25, 100%, 94%);
+$clr-bg-3: hsl(223, 64%, 98%);
+$clr-pale-4: hsl(220, 14%, 75%);
+$clr-accent-5:  hsl(26, 100%, 55%);
+$clr-primary-7: hsl(219, 9%, 45%);
+$clr-dark-8: hsl(220, 13%, 13%);
+$lightbox-6: hsl(0, 0%, 0%, 75%);
+
+$ff: "Kumbh sans", sans-serif;
+$fw-4: 400;
+$fw-7: 700;
+
+$fs-cart-1: 0.5rem;
+$fs-primary-2: 0.875rem;
+$fs-title-6: 1.5rem;
+
+$br: 10px;
+$box-1: 0 0 5px 0 hsl(219, 9%, 45%, 0.5);
+$test: 2px solid red;
+$trans: all 350ms ease;
+
+@mixin flex($ai, $jc, $direc) {
+    display: flex;
+    flex-direction: $direc;
+    align-items: $ai;
+    justify-content: $jc;
+    
+}

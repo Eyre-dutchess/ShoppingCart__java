@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <button class="open-nav-btn" data-open-nav-btn>
+                <img src="./image/icon-menu.svg" alt="menu-bar">
+            </button>
+            <img src="./image/logo.svg" alt="logo" class="logo">
+            <nav class="header-nav" data-header-nav>
+                <button class="close-nav-btn" data-close-nav-btn>
+                    <img src="./image/icon-close.svg" alt="close-btn">
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#">collections</a></li>
+                    <li class="nav-item"><a href="#">Men</a></li>
+                    <li class="nav-item"><a href="#">Women</a></li>
+                    <li class="nav-item"><a href="#">About</a></li>
+                    <li class="nav-item"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <button class="cart-btn" data-cart-btn>
+                <img src="./image/icon-cart.svg" alt="cart">
+                <span class="cart-amount" data-cart-amount>0</span>
+            </button>
+            <a href="#" class="profile-link">
+                <img src="./image/image-avatar.png" alt="his-img" class="his-img">
+            </a>
+        </div>
+        <div class="cart-container" data-cart-container >
+            <h6 class="cart-header">Cart</h6>
+            <div class="cart-content" data-cart-list-container>
+                <!-- <p class="empty-text">Your cart is empty</p> -->
+                <!-- <div class="cart-full"> -->
+                    <!-- <ul class="cart-list">
+                        <li class="cart-item">
+                            <img class="cart-img" src="./image/image-product-1-thumbnail.jpg" alt="">
+                            <div class="cart-middle">
+                                <p class="cart-name">Autumn limited edition</p>
+                                <div class="cart-price">
+                                    <span class="price-output">$125.00 x 3</span>
+                                    <span class="price-total">$375</span>
+                                </div>
+                            </div>
+                            <button class="remove-cart-btn">
+                                <img src="./image/icon-delete.svg" alt="trash"></button>
+                        </li>
+                        
+                    </ul> -->
+                    <!-- <button class="checkout-btn">Checkout</button> -->
+                <!-- </div> -->
+                
+
+            </div>
+            
+        </div>
+    </header>
+
+    <main>
+        <div class="img-container" data-img-container>
+            <div class="active-img"><img  src="./image/image-product-1.jpg" alt=""></div>
+            <div class="img-track" data-img-track>
+                <img class="product-a active" data-cur-img src="./image/image-product-1.jpg" alt="">
+                <img class="product-b" src="./image/image-product-2.jpg" alt="">
+                <img class="product-c" src="./image/image-product-3.jpg" alt="">
+                <img class="product-d" src="./image/image-product-4.jpg" alt="">
+            </div>
+            <button class="left-btn" data-prev-btn><img src="./image/icon-previous.svg" alt="previous"></button>
+            <button class="right-btn" data-next-btn><img src="./image/icon-next.svg" alt="next"></button>
+        </div>
+
+        <div class="litbx-container">
+            <!-- <div class="lightbox-container">
+                
+            </div>
+            <button class="close-litbx-btn">X</button> -->
+        </div>
+        <div class="content-container">
+            <div class="info-container">
+                <h6 class="brand">sneaker company</h6>
+                <h1 class="title" data-cur-title>Fall limited edition sneakers</h1>
+                <p class="info">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+                <div class="price">
+                    <p class="cur-price" ><span data-cur-price>$125.00</span> <span class="sale">50%</span></p>
+                    <p class="ori-price">$250.00</p>
+                </div>
+                <div class="cart-action">
+                    <div class="amount-action">
+                        <button class="minus-action" data-remove-btn>
+                            <img src="./image/icon-minus.svg" alt=""></button>
+                        <form action="" class="amount-form" data-amount-form>
+                            <label for="amount" class="amount"></label>
+                            <input id="amount" value="0" type="text" class="amount-input"></form>
+                        <button class="add-action" data-add-btn>
+                            <img src="./image/icon-plus.svg" alt="">
+                        </button>
+                    </div>
+                    <button class="add-to-cart-btn" data-add-to-cart-btn>
+                        <img src="./image/icon-cart.svg" alt="">
+                        <p>Add to cart</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+   
+
+</body>
+</html>
